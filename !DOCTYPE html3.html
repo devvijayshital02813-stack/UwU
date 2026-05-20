@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday 🎂✨</title>
+
+<!-- MOBILE RESPONSIVE -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+body{
+  font-family:Poppins,sans-serif;
+
+  min-height:100vh;
+
+  overflow:hidden;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  padding:18px;
+
+  background:
+  radial-gradient(circle at top left,#ffe29f 0%,transparent 35%),
+  radial-gradient(circle at bottom right,#ff9ec4 0%,transparent 35%),
+  linear-gradient(135deg,#fff6d6,#ffe6f0,#f3e8ff);
+}
+
+/* NIGHT MODE */
+body.night{
+  background:
+  radial-gradient(circle at top left,#5b3a86 0%,transparent 35%),
+  radial-gradient(circle at bottom right,#243b6b 0%,transparent 35%),
+  linear-gradient(135deg,#15172f,#251b43,#1f2d54);
+}
+
+/* CONTAINER */
+.container{
+  width:100%;
+  max-width:430px;
+  z-index:5;
+}
+
+/* CARD */
+.card{
+  width:100%;
+
+  background:rgba(255,255,255,.93);
+
+  backdrop-filter:blur(10px);
+
+  border-radius:28px;
+
+  padding:28px 22px;
+
+  text-align:center;
+
+  box-shadow:
+  0 18px 40px rgba(0,0,0,.14);
+
+  animation:fadeUp .7s ease;
+}
+
+body.night .card{
+  background:rgba(35,31,70,.94);
+}
+
+/* HIDDEN */
+.hidden{
+  display:none;
+}
+
+/* HEADING */
+h1{
+  font-family:Pacifico,cursive;
+
+  color:#ff4d8d;
+
+  font-size:31px;
+
+  margin-bottom:16px;
+}
+
+body.night h1{
+  color:#ffb3d1;
+}
+
+/* TEXT */
+p{
+  font-size:15px;
+
+  line-height:1.9;
+
+  color:#555;
+}
+
+body.night p{
+  color:#ddd;
+}
+
+/* BUTTONS */
+button{
+  margin-top:16px;
+
+  width:100%;
+
+  padding:14px;
+
+  border:none;
+  border-radius:30px;
+
+  background:linear-gradient(135deg,#ff5ea8,#ff7b7b);
+
+  color:white;
+
+  font-size:15px;
+  font-weight:500;
+
+  cursor:pointer;
+
+  transition:.25s;
+}
+
+button:active{
+  transform:scale(.97);
+}
+
+button.secondary{
+  background:#ffe7f1;
+  color:#ff4d8d;
+}
+
+body.night button.secondary{
+  background:#3a3166;
+  color:#ffd7e7;
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(25px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* HEARTS */
+.heart{
+  position:fixed;
+
+  top:-20px;
+
+  font-size:28px;
+
+  z-index:999;
+
+  animation:heartFall linear forwards;
+}
+
+@keyframes heartFall{
+  to{
+    transform:translateY(110vh) rotate(20deg) scale(1.4);
+    opacity:0;
+  }
+}
+
+/* BALLOONS */
+.balloon{
+  position:fixed;
+
+  bottom:-120px;
+
+  font-size:34px;
+
+  opacity:.85;
+
+  z-index:1;
+
+  animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+  to{
+    transform:translateY(-120vh);
+  }
+}
+
+/* STARS */
+.star{
+  position:fixed;
+
+  color:white;
+
+  opacity:.6;
+
+  z-index:1;
+
+  animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+  from{opacity:.2}
+  to{opacity:1}
+}
+
+/* POPUP */
+.correct-pop{
+  position:fixed;
+
+  top:50%;
+  left:50%;
+
+  transform:translate(-50%,-50%) scale(0);
+
+  background:linear-gradient(135deg,#ff5ea8,#ff7b7b);
+
+  color:white;
+
+  padding:18px 28px;
+
+  border-radius:35px;
+
+  font-size:16px;
+
+  z-index:1000;
+
+  box-shadow:0 15px 35px rgba(255,94,168,.4);
+
+  animation:pop .7s ease forwards;
+}
+
+@keyframes pop{
+  0%{
+    transform:translate(-50%,-50%) scale(0);
+  }
+
+  70%{
+    transform:translate(-50%,-50%) scale(1.18);
+  }
+
+  100%{
+    transform:translate(-50%,-50%) scale(1);
+  }
+}
+
+/* MUSIC BUTTON */
+.music{
+  position:fixed;
+
+  bottom:14px;
+  right:14px;
+
+  background:white;
+
+  padding:10px 14px;
+
+  border-radius:25px;
+
+  font-size:13px;
+
+  box-shadow:0 5px 15px rgba(0,0,0,.2);
+
+  z-index:999;
+}
+
+body.night .music{
+  background:#2a2452;
+  color:white;
+}
+
+/* MOBILE */
+@media(max-width:480px){
+
+  h1{
+    font-size:28px;
+  }
+
+  p{
+    font-size:14px;
+  }
+
+  .card{
+    padding:24px 18px;
+  }
+
+  button{
+    font-size:14px;
+    padding:13px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="bgm" loop>
+  <source src=""C:\Users\Dev Patel\Downloads\HAPPY BIRTHDAY INSTRUMENTAL.mp3"" type="audio">
+</audio>
+
+<div class="music" onclick="toggleMusic()">🎵 Music</div>
+
+<div class="container">
+
+<!-- PAGE 1 -->
+<div class="card" id="s1">
+
+<h1>Happy Birthday 🎂</h1>
+
+<p>
+Today feels a little brighter ✨<br>
+because it’s the day someone special was born 🌸
+</p>
+
+<button onclick="start()">
+Open Your Birthday Surprise 🎁
+</button>
+
+</div>
+
+<!-- PAGE 2 -->
+<div class="card hidden" id="s2">
+
+<h1>A Small Birthday Wish 🌷</h1>
+
+<p>
+I hope this year gives you<br>
+beautiful memories,<br>
+peaceful moments,<br>
+unexpected happiness,<br>
+and people who truly value you 💖
+</p>
+
+<button onclick="next(2)">
+Continue ✨
+</button>
+
+</div>
+
+<!-- PAGE 3 -->
+<div class="card hidden" id="s3">
+
+<h1>Birthday Thought 🎀</h1>
+
+<p>
+What makes birthdays meaningful?
+</p>
+
+<button onclick="correct(3)">
+The people who genuinely remember you 🤍
+</button>
+
+<button class="secondary" onclick="wrong()">
+Just gifts and celebrations
+</button>
+
+</div>
+
+<!-- PAGE 4 -->
+<div class="card hidden" id="s4">
+
+<h1>One More Little One 🌸</h1>
+
+<p>
+What deserves celebration the most?
+</p>
+
+<button onclick="correct(4)">
+Growth, effort, and kindness ✨
+</button>
+
+<button class="secondary" onclick="wrong()">
+Only achievements
+</button>
+
+</div>
+
+<!-- PAGE 5 -->
+<div class="card hidden" id="s5">
+
+<h1>For Your New Year 🌙</h1>
+
+<p>
+May this year bring you confidence<br>
+without pressure,<br>
+success without exhaustion,<br>
+and happiness that quietly stays 🌷
+</p>
+
+<button onclick="next(5)">
+Continue 💖
+</button>
+
+</div>
+
+<!-- FINAL -->
+<div class="card hidden" id="s6">
+
+<h1>Happy Birthday Again 🎂💖</h1>
+
+<p>
+I know life slowly becomes competitive,<br>
+busy,<br>
+and sometimes overwhelming.<br><br>
+But even then,<br>
+I’ll always be there quietly cheering for you,<br>
+watching your growth,<br>
+and appreciating every effort you make 🌸
+</p>
+
+<button onclick="finalMsg()">
+Celebrate 🎉
+</button>
+
+<button class="secondary" onclick="restart()">
+Restart
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+/* NIGHT MODE */
+const hour=new Date().getHours();
+
+if(hour>=19 || hour<6){
+  document.body.classList.add("night");
+}
+
+/* START */
+function start(){
+
+  const bgm=document.getElementById("bgm");
+
+  bgm.volume=.35;
+
+  bgm.play().catch(()=>{});
+
+  next(1);
+}
+
+/* NEXT */
+function next(n){
+
+  document.getElementById("s"+n).classList.add("hidden");
+
+  document.getElementById("s"+(n+1)).classList.remove("hidden");
+}
+
+/* POPUP */
+function popup(text){
+
+  const p=document.createElement("div");
+
+  p.className="correct-pop";
+
+  p.innerText=text;
+
+  document.body.appendChild(p);
+
+  setTimeout(()=>{
+    p.remove();
+  },1300);
+}
+
+/* CORRECT */
+function correct(n){
+
+  popup("Correct 💖");
+
+  heartShower(28);
+
+  setTimeout(()=>{
+    next(n);
+  },900);
+}
+
+/* WRONG */
+function wrong(){
+
+  popup("Try again 🙂");
+}
+
+/* HEART SHOWER */
+function heartShower(count){
+
+  for(let i=0;i<count;i++){
+
+    let h=document.createElement("div");
+
+    h.className="heart";
+
+    h.innerText=["💖","💗","💞","❤️","💝"][Math.floor(Math.random()*5)];
+
+    h.style.left=Math.random()*100+"vw";
+
+    h.style.animationDuration=3+Math.random()*2+"s";
+
+    document.body.appendChild(h);
+
+    setTimeout(()=>{
+      h.remove();
+    },5000);
+  }
+}
+
+/* FINAL */
+function finalMsg(){
+
+  popup("Happiest Birthday 💖");
+
+  heartShower(60);
+}
+
+/* BALLOONS */
+for(let i=0;i<18;i++){
+
+  let b=document.createElement("div");
+
+  b.className="balloon";
+
+  b.innerText=["🎈","🎉","✨","🎊"][Math.floor(Math.random()*4)];
+
+  b.style.left=Math.random()*100+"vw";
+
+  b.style.animationDuration=8+Math.random()*6+"s";
+
+  document.body.appendChild(b);
+}
+
+/* STARS */
+for(let i=0;i<40;i++){
+
+  let s=document.createElement("div");
+
+  s.className="star";
+
+  s.innerText="✦";
+
+  s.style.left=Math.random()*100+"vw";
+  s.style.top=Math.random()*100+"vh";
+
+  s.style.fontSize=(8+Math.random()*12)+"px";
+
+  s.style.animationDuration=(1+Math.random()*3)+"s";
+
+  document.body.appendChild(s);
+}
+
+/* MUSIC */
+function toggleMusic(){
+
+  const bgm=document.getElementById("bgm");
+
+  if(bgm.paused){
+    bgm.play();
+  }else{
+    bgm.pause();
+  }
+}
+
+/* RESTART */
+function restart(){
+  location.reload();
+}
+
+</script>
+
+</body>
+</html>
